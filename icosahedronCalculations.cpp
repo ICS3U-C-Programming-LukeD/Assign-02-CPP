@@ -10,16 +10,24 @@
 // adds iomanip library for rounding
 #include <iostream>
 // adds iostream library
+#include <string>
+// adds string library
 int main() {
     float edgeLength;
     // creates a variable to store edge length input
     int roundTo;
     // creates a variable to store which decimal to round to
+    std::string units;
+    // creates a variable to store the users units
     std::cout <<
     "Welcome to Luke's icosahedron surface area and volume calculator!"
     << std::endl;
     // introduces program
-    std::cout << "Please enter edge length in cm: ";
+    std::cout << "Please enter unit of measurement: ";
+    // ask for units to use
+    std::cin >> units;
+    // takes input and stores it in units variable
+    std::cout << "Please enter edge length: ";
     // prompts user to give edge length in centimeters
     std::cin >> edgeLength;
     // stores user input in edgeLength variable
@@ -32,14 +40,14 @@ int main() {
     float volume = (5 * (3 + sqrt(5)) / 12) * pow(edgeLength, 3);
     // calculates volume and stores it in a variable
     std::cout << std::fixed << std::setprecision(roundTo);
-    // rounds surface area to 2 decimal places
+    // rounds surface area to users decimal places
     std::cout << "" << std::endl;
     std::cout <<
     "The surface area is: "
-    << (surfaceArea) << "cm^2" << std::endl;
-    // displays surface area
-    std::cout << "The volume is: " << (volume) << "cm^3\n" << std::endl;
-    // displays the volume
+    << (surfaceArea) << (units) + "^2" << std::endl;
+    // displays surface area with proper units measurement
+    std::cout << "The volume is: " << (volume) << (units) + "^3\n" << std::endl;
+    // displays the volume with proper units of measurement
     std::cout << "Thank you for using this calculator program!\n\n";
     // outro line
 }
